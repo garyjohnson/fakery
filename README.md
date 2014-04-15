@@ -1,4 +1,4 @@
 fakery
 ======
 
-Removing the ceremony and confusion around using fudge mocks with nose tests in Python.
+Trying to make fudge mocks in Python easier.
