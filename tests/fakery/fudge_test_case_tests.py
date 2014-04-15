@@ -44,6 +44,19 @@ class FudgeTestCaseTest(TestCase):
         self.restore_fudge_patches()
 
     @fudge.with_fakes
+    def test_clears_expectations_in_class_without_tear_down(self):
+        self.setup_fudge_mocks()
+        class TestWithoutTearDown(FudgeTestCase):
+            def test_foo(self):
+                pass
+
+        self.clear_expectations_mock.expects_call()
+
+        test_case = TestWithoutTearDown('test_foo')
+        test_case.tearDown()
+        self.restore_fudge_patches()
+
+    @fudge.with_fakes
     def test_patches_test_method_to_clear_calls_only_once(self):
         self.setup_fudge_mocks()
 
