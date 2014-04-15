@@ -8,10 +8,10 @@ Trying to make fudge mocks in Python easier.
 To install using pip, you can include ```fakery``` in your requirements.txt file, and then install using ```pip install -r requirements.txt```
 
 # Usage
-To use, import ```fakery.fudge_test_case.FudgeTestCase``` and use it as the base class instead of the usual ```unittest.TestCase```:
+To use, import ```fakery.FudgeTestCase``` and use it as the base class instead of the usual ```unittest.TestCase```:
 
 ```python
-from fakery.fudge_test_case import FudgeTestCase
+from fakery import FudgeTestCase
 
 class MyTest(FudgeTestCase):
 

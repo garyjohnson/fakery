@@ -1,6 +1,6 @@
 import fudge
 from unittest import TestCase
-from fakery.fudge_test_case import FudgeTestCase
+from fakery import FudgeTestCase
 
 class FudgeTestCaseTest(TestCase):
 
