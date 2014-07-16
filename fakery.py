@@ -63,7 +63,7 @@ class FudgeTestCase(TestCase):
     def clear_expectations(self, method):
         @wraps(method)
         def apply_clear_expectations(*args, **kw):
+            method(*args, **kw)
             fudge.clear_expectations()
             self.restore_patches()
-            method(*args, **kw)
         return apply_clear_expectations
