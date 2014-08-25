@@ -7,6 +7,21 @@ class FudgeTestCase(TestCase):
     did_patch_methods = False
     patches = []
 
+    def patch_context_manager(self, module_name, object_name):
+        type_mock = fudge.Fake(object_name)
+        object_mock = type_mock.is_callable().returns_fake().is_a_stub()
+
+        class FakeContext(object):
+            def __enter__(self):
+                return object_mock
+
+            def __exit__(self, type, value, traceback):
+                pass
+
+        object_patch = fudge.patch_object(module_name, object_name, FakeContext)
+        FudgeTestCase.patches.append(object_patch)
+        return object_mock
+
     def patch_attribute(self, module_name, object_name):
         object_mock = fudge.Fake(object_name).is_a_stub()
         object_patch = fudge.patch_object(module_name, object_name, object_mock)

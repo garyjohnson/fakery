@@ -9,7 +9,7 @@ from setuptools import setup
 
 setup(
     name='fakery',
-    version='0.1.3',
+    version='0.1.4',
     author='Gary Johnson',
     author_email = 'gary@gjtt.com',
     description = 'Trying to make fudge mocks in Python easier.',
